@@ -43,13 +43,16 @@
 //#include "Kaleidoscope-LEDEffect-SolidColor.h"
 
 // Support for an LED mode that makes all the LEDs 'breathe'
-#include "Kaleidoscope-LEDEffect-Breathe.h"
+/* #include "Kaleidoscope-LEDEffect-Breathe.h" */
 
 // Support for an LED mode that makes a red pixel chase a blue pixel across the keyboard
 //#include "Kaleidoscope-LEDEffect-Chase.h"
 
 // Support for LED modes that pulse the keyboard's LED in a rainbow pattern
 #include "Kaleidoscope-LEDEffect-Rainbow.h"
+
+// Matrix effect
+#include "Kaleidoscope-LEDEffect-DigitalRain.h"  // https://github.com/tremby/Kaleidoscope-LEDEffect-DigitalRain
 
 // Support for an LED mode that lights up the keys as you press them
 #include "Kaleidoscope-LED-Stalker.h"
@@ -77,6 +80,7 @@
 #include "Kaleidoscope-USB-Quirks.h"
 
 #include "Kaleidoscope-SpaceCadet.h" // for easier parens
+
 
 /** This 'enum' is a list of all the macros used by the Model 01's firmware
   * The names aren't particularly important. What is important is that each
@@ -469,7 +473,7 @@ KALEIDOSCOPE_INIT_PLUGINS(
   //solidRed, solidOrange, solidYellow, solidGreen, solidBlue, solidIndigo, solidViolet,
 
   // The breathe effect slowly pulses all of the LEDs on your keyboard
-  LEDBreatheEffect,
+  /* LEDBreatheEffect, */
 
   // The AlphaSquare effect prints each character you type, using your
   // keyboard's LEDs as a display
@@ -478,12 +482,14 @@ KALEIDOSCOPE_INIT_PLUGINS(
   // The stalker effect lights up the keys you've pressed recently
   StalkerEffect,
 
- // WavepoolEffect,
+   // WavepoolEffect,
   HeatmapEffect,
-
 
   // The Colormap effect makes it possible to set up per-layer colormaps
   ColormapEffect,
+
+  // Matrix mode
+  LEDDigitalRainEffect,
 
   // The numpad plugin is responsible for lighting up the 'numpad' mode
   // with a custom LED effect
@@ -576,6 +582,9 @@ void setup() {
   };
   //Set the map.
   SpaceCadet.map = spacecadetmap;
+
+  LEDDigitalRainEffect.DROP_TICKS = 22;  // speed of rain
+  LEDDigitalRainEffect.activate();
 }
 
 /** loop is the second of the standard Arduino sketch functions.
