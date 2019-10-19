@@ -81,6 +81,8 @@
 
 #include "Kaleidoscope-SpaceCadet.h" // for easier parens
 
+#include "LED-Fire.h"
+
 
 /** This 'enum' is a list of all the macros used by the Model 01's firmware
   * The names aren't particularly important. What is important is that each
@@ -490,6 +492,8 @@ KALEIDOSCOPE_INIT_PLUGINS(
   // The Colormap effect makes it possible to set up per-layer colormaps
   ColormapEffect,
 
+  FireEffect, // LED Fire effect
+
   // Matrix mode
   LEDDigitalRainEffect,
 
@@ -532,6 +536,13 @@ void setup() {
   // While we hope to improve this in the future, the NumPad plugin
   // needs to be explicitly told which keymap layer is your numpad layer
   NumPad.numPadLayer = NUMPAD;
+
+  // Configure the mouse to be a bit faster
+  MouseKeys.speed = 7;
+  MouseKeys.speedDelay = 3;
+  MouseKeys.accelSpeed = 1;
+  MouseKeys.accelDelay = 100;
+
 
   // We configure the AlphaSquare effect to use RED letters
   //AlphaSquare.color = CRGB(255, 0, 0);
