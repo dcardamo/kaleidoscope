@@ -203,7 +203,7 @@ KEYMAPS(
    Key_Backtick, Key_Q, Key_W, Key_E, Key_R, Key_T, Key_Tab,
    Key_PageUp,   Key_A, Key_S, Key_D, Key_F, Key_G,
    Key_PageDown, Key_Z, Key_X, Key_C, Key_V, Key_B, Key_Escape,
-   Key_LeftShift, Key_Backspace, Key_LeftControl, Key_LeftGui,
+   Key_LeftShift, Key_Backspace, Key_LeftAlt, Key_LeftGui,
    /* Key_LeftControl, Key_Backspace, Key_LeftShift, Key_LeftGui, */
    ShiftToLayer(FUNCTION),
 
@@ -590,7 +590,7 @@ void setup() {
   static kaleidoscope::plugin::SpaceCadet::KeyBinding spacecadetmap[] = {
 	  {Key_LeftShift, Key_LeftParen, 250}
     , {Key_RightControl, Key_RightParen, 250}
-    , {Key_LeftControl, Key_LeftCurlyBracket, 250}
+    , {Key_LeftAlt, Key_LeftCurlyBracket, 250}
     , {Key_RightShift, Key_RightCurlyBracket, 250}
     , {Key_LeftGui, Key_LeftBracket, 250}
     , {Key_RightAlt, Key_RightBracket, 250}
